@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feirão 2026 | Portal de Consulta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Syncopate:wght@700&display=swap');
+        
+        :root {
+            --hot-pink: #ff007f;
+            --soft-pink: #ff66b2;
+            --action-green: #22c55e;
+            --dark-green: #16a34a;
+            --carbon: #080004;
+            --grid-line: rgba(255, 0, 127, 0.05);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--carbon);
+            color: #ffffff;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Fundo com Grelha Dinâmica */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+
+        .grid-overlay::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--carbon) 85%);
+        }
+
+        /* Container de Vidro (Glassmorphism) */
+        .glass-card {
+            background: rgba(20, 0, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-top: 4px solid var(--hot-pink);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Botão Verde Vibrante */
+        .btn-green {
+            background: linear-gradient(135deg, var(--action-green), var(--dark-green));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .btn-green:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* Efeito Glow Rosa */
+        .pink-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .font-syncopate {
+            font-family: 'Syncopate', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="grid-overlay"></div>
+
+    <div class="max-w-xl w-full">
+        <!-- Badge de Status -->
+        <div class="flex justify-center mb-6 relative z-10">
+            <div class="flex items-center gap-2 px-4 py-1.5 rounded-full border border-pink-500/30 bg-pink-500/10 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                <span class="text-[10px] font-bold text-pink-400 uppercase tracking-[0.2em]">Servidor 2026 Activo</span>
+            </div>
+        </div>
+
+        <!-- Card Principal -->
+        <div class="glass-card rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+            <div class="mb-8">
+                <h2 class="text-pink-500 font-syncopate text-xs tracking-[0.4em] mb-4 uppercase">Limpa Feirão Oficial</h2>
+                <h1 class="text-3xl md:text-4xl font-syncopate font-bold leading-tight uppercase pink-glow">
+                    NEGOCIAÇÃO <br> DE DÍVIDAS
+                </h1>
+            </div>
+
+            <!-- Área de Acção -->
+            <div class="space-y-6">
+                <p class="text-white/60 text-sm tracking-wide uppercase">
+                    Consulte o seu CPF e verifique descontos de até 99%.
+                </p>
+
+                <a href="http://o-iiniciolimpafeirao.shop/inicio/" 
+                   class="btn-green w-full py-6 rounded-xl block no-underline text-white font-bold text-xl uppercase tracking-widest">
+                    CONSULTAR AGORA
+                </a>
+
+                <div class="flex justify-center gap-6 opacity-40">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.9L10 9.503l7.834-4.603A2 2 0 0016 4H4a2 2 0 00-1.834.9zM18 6.663l-8 4.705-8-4.705V14a2 2 0 002 2h12a2 2 0 002-2V6.663z" clip-rule="evenodd"></path></svg>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Seguro</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span class="text-[9px] font-bold uppercase tracking-widest">Verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé Discreto -->
+        <div class="mt-8 text-center relative z-10 opacity-20">
+            <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-white">Central de Acordos © 2026</p>
+        </div>
+    </div>
+
+</body>
+</html>
